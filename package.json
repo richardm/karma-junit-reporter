@@ -1,14 +1,14 @@
 {
-  "name": "karma-junit-reporter",
+  "name": "karma-junitp-reporter",
   "version": "0.2.2",
-  "description": "A Karma plugin. Report results in junit xml format.",
+  "description": "A Karma plugin. Report results in junit xml format that are compatible with protractor.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/karma-runner/karma-junit-reporter.git"
+    "url": "git://github.com/richardm/karma-junit-reporter.git"
   },
   "keywords": [
     "karma-plugin",
@@ -33,6 +33,7 @@
     "Friedel Ziegelmayer <friedel.ziegelmayer@gmail.com>",
     "Sylvain Hamel <sylvainhamel0@gmail.com>",
     "Trey Hyde <thyde@centraldesktop.com>",
-    "sylvain-hamel <sylvainhamel0@gmail.com>"
+    "sylvain-hamel <sylvainhamel0@gmail.com>",
+    "Richard Morgan <richard@richardmorgan.com>"
   ]
 }

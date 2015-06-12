@@ -2,6 +2,12 @@
 
 > Reporter for the JUnit XML format.
 
+## Modified
+
+This version has been modified to make the junit format compatible with the junit output created by protractor. Specifically:
+- this removes the browser prefix
+- separates classes with . instead of a space
+
 ## Installation
 
 The easiest way is to keep `karma-junit-reporter` as a devDependency in your `package.json`.

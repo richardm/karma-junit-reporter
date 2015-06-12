@@ -5,8 +5,8 @@ var builder = require('xmlbuilder');
 
 
 var JUnitReporter = function(baseReporterDecorator, config, logger, helper, formatError) {
-  var log = logger.create('reporter.junit');
-  var reporterConfig = config.junitReporter || {};
+  var log = logger.create('reporter.junitp');
+  var reporterConfig = config.junitpReporter || {};
   var pkgName = reporterConfig.suite || '';
   var outputFile = helper.normalizeWinPath(path.resolve(config.basePath, reporterConfig.outputFile
       || 'test-results.xml'));
@@ -26,7 +26,11 @@ var JUnitReporter = function(baseReporterDecorator, config, logger, helper, form
   var initliazeXmlForBrowser = function(browser) {
     var timestamp = (new Date()).toISOString().substr(0, 19);
     var suite = suites[browser.id] = xml.ele('testsuite', {
-      name: browser.name, 'package': pkgName, timestamp: timestamp, id: 0, hostname: os.hostname()
+      name: browser.name,
+      'package': pkgName,
+      timestamp: timestamp,
+      id: 0,
+      hostname: os.hostname()
     });
     suite.ele('properties').ele('property', {name: 'browser.fullName', value: browser.fullName});
   };
@@ -88,7 +92,7 @@ var JUnitReporter = function(baseReporterDecorator, config, logger, helper, form
   this.specSuccess = this.specSkipped = this.specFailure = function(browser, result) {
     var spec = suites[browser.id].ele('testcase', {
       name: result.description, time: ((result.time || 0) / 1000),
-      classname: (pkgName ? pkgName + ' ' : '') + browser.name + '.' + result.suite.join(' ').replace(/\./g, '_')
+      classname: (pkgName ? pkgName + ' ' : '') + result.suite.join('.').replace(/\./g, '_')
     });
 
     if (result.skipped) {
@@ -116,5 +120,5 @@ JUnitReporter.$inject = ['baseReporterDecorator', 'config', 'logger', 'helper', 
 
 // PUBLISH DI MODULE
 module.exports = {
-  'reporter:junit': ['type', JUnitReporter]
+  'reporter:junitp': ['type', JUnitReporter]
 };
